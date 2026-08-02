@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northbeam · Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 17L10 5L14 13L17 7L20 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="brand-name">Northbeam</span>
+    </div>
+    <button class="icon-btn sidebar-collapse-btn" id="collapseBtn" title="Collapse sidebar" aria-label="Collapse sidebar">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <nav class="nav" id="mainNav">
+    <div class="nav-label">Workspace</div>
+    <button class="nav-item is-active" data-view="dashboard">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="12" width="7" height="9" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="16" width="7" height="5" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+      <span>Overview</span>
+    </button>
+    <button class="nav-item" data-view="orders">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Orders</span>
+      <span class="nav-badge">12</span>
+    </button>
+    <button class="nav-item" data-view="customers">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 8.2a3.2 3.2 0 010 6.4M21 20c0-2.6-1.9-4.8-4.4-5.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Customers</span>
+    </button>
+    <button class="nav-item" data-view="products">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M21 8l-9-5-9 5 9 5 9-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 8v8l9 5 9-5V8M12 13v8" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>Products</span>
+    </button>
+
+    <div class="nav-label">Configure</div>
+    <button class="nav-item" data-view="settings">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 13.5a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.9 2.9l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.6V20a2 2 0 11-4 0v-.2a1.7 1.7 0 00-1-1.6 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.9-2.9l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.6-1H4a2 2 0 110-4h.2a1.7 1.7 0 001.6-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.9-2.9l.1.1a1.7 1.7 0 001.9.3H10a1.7 1.7 0 001-1.6V4a2 2 0 114 0v.2a1.7 1.7 0 001 1.6 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.9 2.9l-.1.1a1.7 1.7 0 00-.3 1.9V10a1.7 1.7 0 001.6 1H20a2 2 0 110 4h-.2a1.7 1.7 0 00-1.6 1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Settings</span>
+    </button>
+  </nav>
+
+  <div class="sidebar-foot">
+    <div class="usage-card">
+      <div class="usage-top">
+        <span>API usage</span>
+        <span class="mono">74%</span>
+      </div>
+      <div class="usage-bar"><div class="usage-bar-fill" style="width:74%"></div></div>
+      <p>7.4k / 10k requests this cycle</p>
+    </div>
+  </div>
+</aside>
+<div class="sidebar-scrim" id="sidebarScrim"></div>
+
+<!-- ============ MAIN ============ -->
+<div class="main" id="main">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <button class="icon-btn only-mobile" id="menuBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="text" id="searchInput" placeholder="Search orders, customers, products…" autocomplete="off">
+      <kbd class="kbd">⌘K</kbd>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M21 14.5A8.5 8.5 0 1110 3a6.8 6.8 0 0011 11.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="popover-anchor">
+        <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9a6 6 0 1112 0c0 4 1.5 5.5 2 6H4c.5-.5 2-2 2-6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 19a2.5 2.5 0 005 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span class="dot-badge" id="notifBadge">3</span>
+        </button>
+        <div class="popover" id="notifPanel">
+          <div class="popover-head">
+            <span>Notifications</span>
+            <button class="text-btn" id="markAllRead">Mark all read</button>
+          </div>
+          <div class="popover-list" id="notifList"></div>
+        </div>
+      </div>
+
+      <div class="popover-anchor">
+        <button class="profile-btn" id="profileBtn">
+          <span class="avatar">HD</span>
+          <span class="profile-meta only-desktop">
+            <strong>Hedra</strong>
+            <small>Product Admin</small>
+          </span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="popover popover-right" id="profilePanel">
+          <button class="popover-item" data-view="settings"><span>Settings</span></button>
+          <button class="popover-item" id="triggerToastDemo"><span>Send test toast</span></button>
+          <button class="popover-item danger" id="signOutBtn"><span>Sign out</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ DASHBOARD VIEW ============ -->
+  <main class="view is-active" id="view-dashboard">
+    <div class="view-head">
+      <div>
+        <h1>Overview</h1>
+        <p class="muted">Welcome back — here's what's happening across your store today.</p>
+      </div>
+      <div class="range-switch" id="rangeSwitch">
+        <button class="range-btn" data-range="7">7D</button>
+        <button class="range-btn is-active" data-range="30">30D</button>
+        <button class="range-btn" data-range="90">90D</button>
+      </div>
+    </div>
+
+    <section class="stat-grid" id="statGrid"><!-- injected --></section>
+
+    <section class="panel-grid">
+      <div class="card chart-card">
+        <div class="card-head">
+          <div>
+            <h3>Sales overview</h3>
+            <p class="muted">Gross revenue vs. refunds</p>
+          </div>
+          <div class="legend">
+            <span><i style="background:var(--accent)"></i>Revenue</span>
+            <span><i style="background:var(--danger)"></i>Refunds</span>
+          </div>
+        </div>
+        <canvas id="salesChart" height="260"></canvas>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h3>Traffic sources</h3>
+            <p class="muted">Session share by channel</p>
+          </div>
+        </div>
+        <canvas id="donutChart" height="180"></canvas>
+        <ul class="donut-legend" id="donutLegend"></ul>
+      </div>
+    </section>
+
+    <section class="card table-card">
+      <div class="card-head">
+        <div>
+          <h3>Recent orders</h3>
+          <p class="muted">A live feed of orders placed across all channels</p>
+        </div>
+        <div class="table-tools">
+          <select id="statusFilter" class="select">
+            <option value="all">All statuses</option>
+            <option value="paid">Paid</option>
+            <option value="pending">Pending</option>
+            <option value="refunded">Refunded</option>
+            <option value="failed">Failed</option>
+          </select>
+          <div class="table-search">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input type="text" id="tableSearch" placeholder="Filter orders…">
+          </div>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="data-table" id="ordersTable">
+          <thead>
+            <tr>
+              <th data-sort="id">Order</th>
+              <th data-sort="customer">Customer</th>
+              <th data-sort="date">Date</th>
+              <th data-sort="amount">Amount</th>
+              <th data-sort="status">Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="ordersBody"><!-- injected --></tbody>
+        </table>
+      </div>
+
+      <div class="table-foot">
+        <p class="muted" id="paginationInfo">—</p>
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ SETTINGS VIEW ============ -->
+  <main class="view" id="view-settings">
+    <div class="view-head">
+      <div>
+        <h1>Settings</h1>
+        <p class="muted">Manage your workspace preferences and account.</p>
+      </div>
+    </div>
+
+    <section class="settings-grid">
+      <div class="card">
+        <div class="card-head"><div><h3>Profile</h3><p class="muted">This information appears across the dashboard</p></div></div>
+        <div class="form-row">
+          <label>Full name<input type="text" class="input" id="settingsName" value="Hedra"></label>
+          <label>Role<input type="text" class="input" id="settingsRole" value="Product Admin"></label>
+        </div>
+        <div class="form-row">
+          <label>Email<input type="email" class="input" value="hedra@northbeam.dev"></label>
+          <label>Timezone
+            <select class="select full">
+              <option>Africa/Cairo (UTC+2)</option>
+              <option>UTC</option>
+              <option>Europe/Berlin</option>
+            </select>
+          </label>
+        </div>
+        <button class="btn btn-primary" id="saveProfileBtn">Save changes</button>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div><h3>Appearance</h3><p class="muted">Choose how Northbeam looks on this device</p></div></div>
+        <div class="theme-picker">
+          <button class="theme-opt" data-theme-pick="dark">
+            <span class="swatch swatch-dark"></span>Dark
+          </button>
+          <button class="theme-opt" data-theme-pick="light">
+            <span class="swatch swatch-light"></span>Light
+          </button>
+        </div>
+        <div class="toggle-row">
+          <div><strong>Compact sidebar</strong><p class="muted">Start with the sidebar collapsed</p></div>
+          <label class="switch"><input type="checkbox" id="compactSidebarToggle"><span></span></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div><h3>Notifications</h3><p class="muted">Choose what you're alerted about</p></div></div>
+        <div class="toggle-row"><div><strong>New orders</strong><p class="muted">Get notified for every new order</p></div><label class="switch"><input type="checkbox" checked><span></span></label></div>
+        <div class="toggle-row"><div><strong>Payment failures</strong><p class="muted">Alerts for declined or failed charges</p></div><label class="switch"><input type="checkbox" checked><span></span></label></div>
+        <div class="toggle-row"><div><strong>Weekly summary</strong><p class="muted">A digest every Monday morning</p></div><label class="switch"><input type="checkbox"><span></span></label></div>
+      </div>
+
+      <div class="card danger-zone">
+        <div class="card-head"><div><h3>Danger zone</h3><p class="muted">These actions are permanent</p></div></div>
+        <div class="toggle-row">
+          <div><strong>Reset dashboard data</strong><p class="muted">Clears local cache and reloads fake data</p></div>
+          <button class="btn btn-danger" id="resetDataBtn">Reset data</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ORDERS / CUSTOMERS / PRODUCTS placeholder view -->
+  <main class="view" id="view-placeholder">
+    <div class="empty-state">
+      <div class="empty-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M21 8l-9-5-9 5 9 5 9-5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 8v8l9 5 9-5V8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+      <h2 id="placeholderTitle">Coming soon</h2>
+      <p class="muted">This section isn't wired up in the demo yet — it's a preview build focused on Overview and Settings.</p>
+      <button class="btn btn-secondary" data-view="dashboard">Back to overview</button>
+    </div>
+  </main>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h3 id="modalTitle">Title</h3>
+      <button class="icon-btn" id="modalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot"></div>
+  </div>
+</div>
+
+<!-- ============ TOASTS ============ -->
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="js/api.js"></script>
+<script src="js/store.js"></script>
+<script src="js/components.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
